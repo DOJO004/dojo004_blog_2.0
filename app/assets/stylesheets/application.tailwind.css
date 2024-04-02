@@ -38,3 +38,7 @@ p {
 label {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl
 }
+
+.trix-content{
+  @apply text-pretty leading-loose !important
+}

@@ -1,5 +1,9 @@
 <%= form_with(model:@article, data: {turbo: false}) do |f|%>
   <div class="my-4">
+    <%= f.label :cover_photo%>
+    <%= f.file_field :cover_photo, class:"w-full rounded-md p-2"%>
+  </div>
+  <div class="my-4">
     <%= f.label :title%>
     <%= f.text_field :title, class:"w-full rounded-md p-2"%>
   </div>
