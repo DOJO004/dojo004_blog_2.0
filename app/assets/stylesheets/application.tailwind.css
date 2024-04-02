@@ -1,13 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'actiontext.css';
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+* {
+  @apply p-0 m-0 box-border
 }
 
-*/
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl border-b !important
+}
+
+h2 {
+  @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl border-b
+}
+
+h3 {
+  @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+}
+
+ol {
+  @apply text-base md:text-lg lg:text-xl xl:text-2xl list-decimal
+}
+
+ul {
+  @apply text-base md:text-lg lg:text-xl xl:text-2xl  list-disc
+}
+
+figure img {
+  @apply mx-auto !important
+}
+
+p {
+  @apply text-base md:text-lg lg:text-xl xl:text-2xl
+}
+
+label {
+  @apply text-base md:text-lg lg:text-xl xl:text-2xl
+}

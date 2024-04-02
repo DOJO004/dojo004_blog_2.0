@@ -1,0 +1,14 @@
+<div class="w-full ">
+  <h1>DOJO004</h1>
+  <div>
+    <h3>Articles</h3>
+    <%= link_to "New Article", new_article_path%>
+    <div>
+      <% @articles.each do |article|%>
+        <%= link_to article_path(id: article.id), class:"block p-2 my-4 border rounded-md" do%>
+          <%= article.title%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
