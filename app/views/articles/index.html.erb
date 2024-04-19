@@ -1,7 +1,6 @@
 <div class="w-full ">
-  <h1>DOJO004</h1>
   <div>
-    <h3 class="my-4">Articles</h3>
+    <h3 class="my-4">最新文章</h3>
     <%= link_to "New Article", new_article_path if current_user && current_user.role === "admin"%>
     <div class="grid g`rid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <% @articles.each do |article|%>
