@@ -39,6 +39,10 @@ label {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl
 }
 
+#trix-toolbar-1{
+  @apply sticky top-0
+}
+
 .trix-content{
   @apply text-pretty leading-loose !important
 }
