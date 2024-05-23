@@ -27,6 +27,10 @@ ol {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl  list-disc
 }
 
+.trix-content a{
+  @apply text-blue-500  
+}
+
 figure img {
   @apply mx-auto !important
 }
