@@ -23,7 +23,7 @@ ol {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl list-decimal
 }
 
-ul {
+.trix-content ul {
   @apply text-base md:text-lg lg:text-xl xl:text-2xl  list-disc
 }
 

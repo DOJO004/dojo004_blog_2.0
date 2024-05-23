@@ -1,18 +1,12 @@
-<div class="w-full ">
-  <div>
-    <h3 class="my-4">最新文章</h3>
-    <%= link_to "New Article", new_article_path if current_user && current_user.role === "admin"%>
-    <div class="grid g`rid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      <% @articles.each do |article|%>
-        <%= link_to article_path(id: article.id), class:"block p-2 my-4 border rounded-xl transition-all duration-300 ease-in-out hover:bg-gray-100" do%>
-          <% if article.cover_photo.attached? %>
-            <%= image_tag rails_representation_url(article.cover_photo), class:"w-32 mx-auto rounded-md" %>
-          <% else %>
-            <%= image_tag "https://picsum.photos/200", class:"w-32 mx-auto rounded-md" %>
-          <% end %>
-          <h3 class="my-2"><%= article.title%></h3>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+<div class="w-full">
+  <% @articles.each do |article|%>
+    <%= link_to article_path(article.id), class:"my-4 p-4" do %>
+      <h2>
+        <%= article.title%>
+        <span class="text-sm text-gray-200 md:text-base">
+          <%= article.created_at.in_time_zone("Asia/Taipei").strftime("%Y-%m-%d")%>
+        </span>
+      </h2>
+    <% end %>
+  <% end %>
 </div>
