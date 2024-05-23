@@ -1,6 +1,6 @@
 <div class="w-full">
   <% @articles.each do |article|%>
-    <%= link_to article_path(article.id), class:"my-4 p-4" do %>
+    <%= link_to article_path(article.id), class:"my-4 p-4 block" do %>
       <h2>
         <%= article.title%>
         <span class="text-sm text-gray-200 md:text-base">
