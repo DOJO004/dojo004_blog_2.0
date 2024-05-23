@@ -3,7 +3,7 @@
     <h1>
       <%= link_to "DOJO004", root_path%>
     </h1>
-    <ul>
+    <ul class="mt-4">
       <li>Dashool 創辦人</li>
       <li>喜歡調酒</li>
       <li>Rails、Nextjs、TypeScript</li>
@@ -13,5 +13,17 @@
         <%= image_tag "github.png", class:"w-8 md:w-10 lg:w-12 xl:w-16"%>
       <% end %>
     </div>
+    <% if current_user %>
+      <div class="flex gap-2 mt-4">
+        <% if current_user.role == "admin" %>
+          <%= link_to dashboard_path do %>
+            <%= image_tag "icons/dashboard.svg" %>
+          <% end %>
+        <% end %>
+        <%= link_to destroy_user_session_path, data:{ turbo_method: :delete } do%>
+          <%= image_tag "icons/logout.svg"%>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

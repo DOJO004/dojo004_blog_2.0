@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit]
+  before_action :check_user, only: %i[new edit]
   before_action :set_article, only: %i[show edit update destroy]
   def index
     @articles = Article.all
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to @article, notice: 'create success!'
+      redirect_to dashboard_path, notice: 'create success!'
     else
       flash.now[:alert] = 'false...'
       render :new
@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: 'update success!'
+      redirect_to dashboard_path, notice: 'update success!'
     else
       flash.now[:alert] = 'false...'
       render :edit
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.delete
-    redirect_to articles_path
+    redirect_to dashboard_path
   end
 
   private

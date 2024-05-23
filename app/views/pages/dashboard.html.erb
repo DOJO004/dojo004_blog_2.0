@@ -1,0 +1,28 @@
+<div class="w-full">
+  <div class="flex items-center gap-2">
+    <h1>Dashboard</h1>
+    <%= link_to new_article_path do %>
+      <%= image_tag "icons/add.svg"%>
+    <% end %>
+  </div>
+  <div>
+    <% @articles.each do |article|%>
+      <div class="relative">
+        <%= link_to article, class:"block w-full my-4 p-4 border rounded-md" do%>
+          <%= article.title%>
+          <span class="text-sm text-gray-300">
+            <%= article.created_at.in_time_zone("Asia/Taipei").strftime("%Y-%m-%d")%>
+          </span>
+        <% end %>
+        <div class="absolute flex gap-2 top-5 right-5">
+          <%= link_to edit_article_path(article.id) do%>
+            <%= image_tag "icons/edit.svg"%>
+          <% end %>
+          <%= link_to article_path(article.id), data: {turbo_method: :delete, turbo_confirm: "確定刪除嗎?"} do %>
+            <%= image_tag "icons/delete.svg"%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
