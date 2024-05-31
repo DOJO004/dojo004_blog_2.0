@@ -48,7 +48,7 @@ label {
 }
 
 #trix-toolbar-1{
-  @apply sticky top-0
+  @apply  sticky top-0 bg-white rounded-md z-10
 }
 
 .trix-content{
