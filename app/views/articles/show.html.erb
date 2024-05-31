@@ -1,9 +1,18 @@
-<div class="w-full ">
+<div class="w-full">
   <div class="flex justify-between">
-    <%= link_to "back", articles_path%>
-    <%= link_to "Edit", edit_article_path(id: params[:id]) if current_user && current_user.role === "admin"%>
+    <%= link_to articles_path do%>
+      <%= image_tag "icons/back.svg"%>
+    <% end %>
+    <% if  current_user && current_user.role === "admin" %>
+      <%= link_to edit_article_path(id: params[:id]) do%>
+        <%= image_tag "icons/edit.svg"%>
+      <% end %>
+    <% end %>
   </div>
   <div>
+    <h1>
+      <%= @article.title%>
+    </h1>
     <%= @article.content%>
   </div>
 </div>
