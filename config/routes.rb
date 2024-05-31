@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :articles
   
   get "dashboard", to: "pages#dashboard"
+
 end
