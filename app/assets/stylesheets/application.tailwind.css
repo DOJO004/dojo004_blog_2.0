@@ -1,56 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'actiontext.css';
 
 * {
   @apply p-0 m-0 box-border
 }
 
-h1 {
-  @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl border-b my-4 !important
-}
-
-h2 {
-  @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl border-b
-}
-
-h3 {
-  @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl
-}
-
-ol {
-  @apply text-base md:text-lg lg:text-xl xl:text-2xl list-decimal
+/* trix */
+.trix-content {
+  @apply leading-loose
 }
 
 .trix-content h1 {
-  @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-4
+  @apply mt-4 border-b-2 font-bold text-2xl md:text-3xl
+}
+
+.trix-content a {
+  @apply text-blue-500 border-b border-blue-500 m-2
 }
 
 .trix-content ul {
-  @apply text-base md:text-lg lg:text-xl xl:text-2xl  list-disc
+  @apply my-4 list-disc pl-4
+}
+.trix-content ol {
+  @apply my-4 list-decimal pl-4
 }
 
-.trix-content a{
-  @apply text-blue-500  
+.trix-content pre{
+  @apply bg-gray-100 p-4 overflow-auto my-4
 }
 
-figure img {
-  @apply mx-auto !important
+.trix-content blockquote {
+  @apply p-4 border-l-2 my-4 border-gray-200 text-gray-600
 }
 
-p {
-  @apply text-base md:text-lg lg:text-xl xl:text-2xl
+.trix-content figure{
+  @apply my-4
 }
 
-label {
-  @apply text-base md:text-lg lg:text-xl xl:text-2xl
+/* toolbar */
+#trix-toolbar-1 {
+  @apply overflow-auto sticky top-0 bg-white z-10
 }
 
-#trix-toolbar-1{
-  @apply  sticky top-0 bg-white rounded-md z-10
-}
-
-.trix-content{
-  @apply text-pretty leading-loose !important
+/* article content */
+#article_content{
+  @apply bg-white border p-4
 }

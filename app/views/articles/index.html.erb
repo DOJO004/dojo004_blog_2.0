@@ -1,12 +1,14 @@
 <div class="w-full">
-  <% @articles.each do |article|%>
-    <%= link_to article_path(article.id), class:"my-4 p-4 block" do %>
-      <h2>
-        <%= article.title%>
-      </h2>
-      <span class="text-sm text-gray-300 md:text-base">
-        <%= article.created_at.in_time_zone("Asia/Taipei").strftime("%Y-%m-%d")%>
-      </span>
+  <div>
+    <% @articles.each do |article|%>
+      <div class="relative">
+        <%= link_to article, class:"block w-full my-4 p-4 border rounded-md" do%>
+          <%= article.title%>
+          <span class="text-sm text-gray-300">
+            <%= article.created_at.in_time_zone("Asia/Taipei").strftime("%Y-%m-%d")%>
+          </span>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
