@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_402_124_928) do
+ActiveRecord::Schema[7.1].define(version: 20_240_619_005_721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'pgcrypto'
   enable_extension 'plpgsql'
@@ -54,8 +54,23 @@ ActiveRecord::Schema[7.1].define(version: 20_240_402_124_928) do
     t.index %w[blob_id variation_digest], name: 'index_active_storage_variant_records_uniqueness', unique: true
   end
 
+  create_table 'article_category_records', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+    t.uuid 'article_id', null: false
+    t.uuid 'category_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['article_id'], name: 'index_article_category_records_on_article_id'
+    t.index ['category_id'], name: 'index_article_category_records_on_category_id'
+  end
+
   create_table 'articles', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
     t.string 'title'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'categories', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+    t.string 'name'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end
@@ -75,4 +90,6 @@ ActiveRecord::Schema[7.1].define(version: 20_240_402_124_928) do
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'article_category_records', 'articles'
+  add_foreign_key 'article_category_records', 'categories'
 end

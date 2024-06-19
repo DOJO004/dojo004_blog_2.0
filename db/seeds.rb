@@ -8,5 +8,35 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.find_or_create_by!(email: 'chendojo004@gmail.com') do |user|
+  user.password = ENV['USER_PASSWORD']
+  user.role = 'admin'
+end
 
-User.create!(email: 'chendojo004@gmail.com', password: ENV["USER_PASSWORD"], role: 'admin')
+categories = [
+  {
+    name: 'Rails'
+  },
+  {
+    name: 'JavaScript'
+  },
+  {
+    name: 'Flutter'
+  },
+  {
+    name: 'React'
+  },
+  {
+    name: 'HTML'
+  },
+  {
+    name: 'CSS'
+  },
+  {
+    name: '自我成長'
+  }
+]
+
+categories.each do |category|
+  Category.find_or_create_by!(name: category[:name])
+end

@@ -13,6 +13,11 @@
     <h1 class="text-3xl font-bold md:text-4xl lg:text-5xl">
       <%= @article.title%>
     </h1>
+    <div class="flex items-center gap-2 mt-2">
+      <% @article.categories.each do |category|%>
+        <p class="p-1 text-white bg-blue-500 rounded-md"><%= category.name%></p>
+      <% end %>
+    </div>
     <div class="relative mt-8">
       <%= @article.content%>
     </div>
