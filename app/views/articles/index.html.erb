@@ -7,6 +7,11 @@
           <span class="text-sm text-gray-300">
             <%= article.created_at.in_time_zone("Asia/Taipei").strftime("%Y-%m-%d")%>
           </span>
+          <div class="flex gap-2 mt-2">
+            <% article.categories.each do |category|%>
+              <p class="p-1 text-white bg-blue-500 rounded-md"><%= category.name%></p>
+            <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>
