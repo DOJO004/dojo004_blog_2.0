@@ -1,7 +1,10 @@
 <div >
   <div class="sticky left-0 top-5">
-    <h1>
-      <%= link_to "DOJO004", root_path%>
+    <h1 class="text-xl md:text-2xl lg:text-3xl">
+      <%= link_to root_path, class:" flex gap-2 items-center" do%>
+        <%= image_tag "icons/home.svg"%>
+        DOJO004
+      <% end %>
     </h1>
     <ul class="mt-4">
       <li>Dashool 創辦人</li>

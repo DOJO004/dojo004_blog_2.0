@@ -13,30 +13,8 @@ User.find_or_create_by!(email: 'chendojo004@gmail.com') do |user|
   user.role = 'admin'
 end
 
-categories = [
-  {
-    name: 'Rails'
-  },
-  {
-    name: 'JavaScript'
-  },
-  {
-    name: 'Flutter'
-  },
-  {
-    name: 'React'
-  },
-  {
-    name: 'HTML'
-  },
-  {
-    name: 'CSS'
-  },
-  {
-    name: '自我成長'
-  }
-]
+categories = %w[Rails JavaScript Flutter React HTML CSS 自我成長 LeetCode]
 
-categories.each do |category|
-  Category.find_or_create_by!(name: category[:name])
+categories.each do |name|
+  Category.find_or_create_by!(name:)
 end

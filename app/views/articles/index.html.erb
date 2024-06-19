@@ -1,12 +1,12 @@
 <div class="w-full">
-  <ul class="flex items-center gap-4 ">
+  <ul class="flex items-center gap-4 overflow-auto ">
     <% @categories.each do |category| %>
-      <li>
+      <li class="p-2 whitespace-nowrap">
         <%= link_to category_articles_path(category.id), class: "text-center transition-all duration-300 font-bold border-b-2 #{'border-blue-500' if category.id.to_s == @current_category_id.to_s} hover:border-blue-500" do %>
           <%= category.name %>
         <% end %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
   </div>
   <div>
     <% if @articles.length === 0 %>
