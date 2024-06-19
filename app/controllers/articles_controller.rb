@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    debugger
     @article = Article.new(article_params)
     if @article.save
       redirect_to dashboard_path, notice: 'create success!'
@@ -40,7 +41,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :cover_photo)
+    params.require(:article).permit(:title, :content, :cover_photo, category_ids: [])
   end
 
   def set_article

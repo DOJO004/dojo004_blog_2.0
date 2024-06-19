@@ -9,8 +9,8 @@
       <%= f.text_field :title, class:"w-full rounded-md p-2"%>
     </div>
     <div class="my-4">
-      <%= f.label :category%>
-      <%= f.select :category, Category.all.pluck(:name, :id), {}, { multiple: true, data: { slim_select_target: "field"}, class:"w-full rounded-md p-2"}%>
+      <%= f.label :category_ids, "Category"%>
+      <%= f.select :category_ids, Category.all.pluck(:name, :id), {}, { multiple: true, data: { slim_select_target: "field"}, class:"w-full rounded-md p-2"}%>
     </div>
     <div class="my-4">
       <%f.label :content%>
