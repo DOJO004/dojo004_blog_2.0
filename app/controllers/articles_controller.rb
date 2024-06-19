@@ -16,7 +16,6 @@ class ArticlesController < ApplicationController
     render :index
   end
 
-
   def show; end
 
   def new
@@ -24,7 +23,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    debugger
     @article = Article.new(article_params)
     if @article.save
       redirect_to dashboard_path, notice: 'create success!'
