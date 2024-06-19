@@ -2,8 +2,20 @@ class ArticlesController < ApplicationController
   before_action :check_user, only: %i[new edit]
   before_action :set_article, only: %i[show edit update destroy]
   def index
+    @categories = Category.all
     @articles = Article.all.order(created_at: :desc)
+    @current_category_id = params[:category_id]
   end
+
+  def category
+    @categories = Category.all
+    @category = Category.find(params[:category_id])
+    @articles = @category.articles
+    @current_category_id = @category.id
+
+    render :index
+  end
+
 
   def show; end
 

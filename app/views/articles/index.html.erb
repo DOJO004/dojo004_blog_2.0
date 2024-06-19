@@ -1,5 +1,17 @@
 <div class="w-full">
+  <ul class="flex items-center gap-4 ">
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to category_articles_path(category.id), class: "text-center transition-all duration-300 font-bold border-b-2 #{'border-blue-500' if category.id.to_s == @current_category_id.to_s} hover:border-blue-500" do %>
+          <%= category.name %>
+        <% end %>
+      <% end %>
+    </li>
+  </div>
   <div>
+    <% if @articles.length === 0 %>
+      <p class="mt-4 text-center ">未查詢到相關文章...</p>
+    <% end %>
     <% @articles.each do |article|%>
       <div class="relative">
         <%= link_to article, class:"block w-full my-4 p-4 border rounded-md" do%>
