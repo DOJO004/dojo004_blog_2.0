@@ -13,7 +13,7 @@ User.find_or_create_by!(email: 'chendojo004@gmail.com') do |user|
   user.role = 'admin'
 end
 
-categories = %w[Rails JavaScript Flutter React HTML CSS 自我成長 LeetCode]
+categories = %w[Rails JavaScript Flutter React HTML CSS 自我成長 LeetCode 演算法]
 
 categories.each do |name|
   Category.find_or_create_by!(name:)

@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   def category
     @categories = Category.all
     @category = Category.find(params[:category_id])
-    @articles = @category.articles
+    @articles = @category.articles.order(created_at: :desc)
     @current_category_id = @category.id
 
     render :index
